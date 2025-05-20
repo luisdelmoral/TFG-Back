@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AplicacionServicioRest",
+            "request": "launch",
+            "mainClass": "com.inventario.AplicacionServicioRest",
+            "projectName": "rest-service-complete"
+        },
+        {
+            "type": "java",
+            "name": "AplicacionServicioRest",
+            "request": "launch",
+            "mainClass": "com.inventario.serviciorest.AplicacionServicioRest",
+            "projectName": "rest-service-complete"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RestServiceApplication<rest-service-complete>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.restservice.RestServiceApplication",
+            "projectName": "rest-service-complete",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
