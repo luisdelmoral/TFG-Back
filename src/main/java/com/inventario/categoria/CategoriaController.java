@@ -1,3 +1,4 @@
+//Expone un servicio Rest en el path /categoria y varios endpoints (...Mapping)
 package com.inventario.categoria;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +41,6 @@ public class CategoriaController {
             return respuestaCategoria;
         } catch (Exception exception) {
             return new RespuestaCategoria(0, new ArrayList<Categoria>(), exception.getMessage());
-
         }
     }
 

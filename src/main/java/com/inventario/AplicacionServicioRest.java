@@ -1,3 +1,4 @@
+//Punto de entrada de la app Java (public static main)
 package com.inventario;
 
 import org.springframework.boot.SpringApplication;

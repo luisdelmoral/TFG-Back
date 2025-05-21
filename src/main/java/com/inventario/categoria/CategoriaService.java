@@ -1,3 +1,4 @@
+//Servicio de Negocio. La clase que se encarga de la lógica de negocio de "categoria"
 package com.inventario.categoria;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class CategoriaService {
         List<Categoria> listaCategoria = new ArrayList<>();
         queryResult.forEach(fila ->{
             Categoria categoria = new Categoria((Long)fila.get("id"), (String)fila.get("nombre_categoria"));
-            listaCategoria.add(categoria); 
+             listaCategoria.add(categoria); 
         });
         return listaCategoria; 
     }

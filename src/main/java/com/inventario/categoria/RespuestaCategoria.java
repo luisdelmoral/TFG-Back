@@ -1,3 +1,4 @@
+//bean para controlar las respuestas de json del servicio rest de Categoria
 package com.inventario.categoria;
 
 import java.util.List;
