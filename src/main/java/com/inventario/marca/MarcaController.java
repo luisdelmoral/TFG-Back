@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-@RequestMapping("/marca")
+@RequestMapping("/api/marca")
 public class MarcaController {
 
     @Autowired

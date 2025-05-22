@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/articulo")
+@RequestMapping("/api/articulo")
 public class ArticuloController {
 
     @Autowired
