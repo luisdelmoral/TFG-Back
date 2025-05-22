@@ -20,6 +20,19 @@ public class Constantes {
 
         public static final String GET_ALL_MARCA = "select * from marcas"; 
 
+        public static final String INSERTAR_PROVEEDOR = "insert into proveedor (marcas_id, contactos_id, nombre, direccion, descripcion) values (%h, %h, '%s', '%s', '%s' )";
+        
+        public static final String GET_PROVEEDOR = "select * from proveedores where id=%h;";
+        
+        public static final String GET_ALL_PROVEEDOR = "select * from proveedores";
+
+        public static final String INSERTAR_ARTICULO = "insert into articulo (marcas_id, nombre, precio, cantidad, descatalogado, descripcion)";
+
+        public static final String GET_ARTICULO = "select * from articulos where id=%h;";
+
+        public static final String GET_ALL_ARTICULO = "select * from articulos";
+         
+
 
 
 }       
