@@ -8,8 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,5 +57,18 @@ public class ArticuloController {
         }
     }
 
-
+    @CrossOrigin
+    @DeleteMapping("/eliminar")
+    public RespuestaArticulo delete (@RequestParam Long id) {
+        try {
+            int filasAfectadas = articuloService.eliminarArticulo(id);
+            return new RespuestaArticulo(filasAfectadas, new ArrayList<Articulo>(), "");
+        }
+            catch (Exception exception) {
+                return new RespuestaArticulo(0, new ArrayList<Articulo>(), exception.getMessage());
+            }
+        }
 }
+
+
+

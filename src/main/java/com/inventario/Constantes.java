@@ -31,6 +31,8 @@ public class Constantes {
         public static final String GET_ARTICULO = "select * from articulos where id=%h;";
 
         public static final String GET_ALL_ARTICULO = "select * from articulos";
+
+        public static final String ELIMINAR_ARTICULO = "delete from articulos where id=%h";
          
 
 

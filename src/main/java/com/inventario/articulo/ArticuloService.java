@@ -47,4 +47,10 @@ public class ArticuloService {
         return listaArticulo;
 
     }
+
+    public int eliminarArticulo(Long id) {
+        String sentenciaElminarArticulo = String.format(Constantes.ELIMINAR_ARTICULO, id);
+        return  jdbcTemplate.update(sentenciaElminarArticulo);
+    }
+
 }
