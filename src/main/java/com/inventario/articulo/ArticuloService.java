@@ -1,8 +1,12 @@
 package com.inventario.articulo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +23,9 @@ public class ArticuloService {
     private JdbcTemplate jdbcTemplate;
 
     public int insertarArticulo(Articulo articulo) {
-        String sentenciaInsertarArticulo = String.format(Constantes.INSERTAR_ARTICULO, articulo.nombre(),
-                articulo.marcaId(), articulo.nombre(), articulo.precio(), articulo.cantidad(), articulo.descatalogado(), articulo.descripcion());
+        String df = articulo.precio().toString().replaceAll(",", ".");
+        String sentenciaInsertarArticulo = String.format(Constantes.INSERTAR_ARTICULO, articulo.marcaId(),
+                articulo.nombre(), df, articulo.cantidad(), articulo.descatalogado(), articulo.descripcion());
         return jdbcTemplate.update(sentenciaInsertarArticulo);
     }
 

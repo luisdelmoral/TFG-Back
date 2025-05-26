@@ -19,7 +19,7 @@ public class ProveedorService {
 
     public int insertarProveedor(Proveedor proveedor) {
         String sentenciaInsertarProveedor = String.format(Constantes.INSERTAR_PROVEEDOR, proveedor.marcaId(),
-                proveedor.contactoId(), proveedor.nombre(), proveedor.descripcion(), proveedor.direccion());
+                proveedor.contactoId(), proveedor.nombre(), proveedor.direccion(), proveedor.descripcion());
         return jdbcTemplate.update(sentenciaInsertarProveedor);
     }
 
