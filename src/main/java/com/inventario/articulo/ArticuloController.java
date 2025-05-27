@@ -36,9 +36,7 @@ public class ArticuloController {
     @GetMapping(value = "/get")
     public RespuestaArticulo getArticulo(@RequestParam Long id) {
         try {
-            Articulo articulo = articuloService.getArticulo(id);
-            List<Articulo> listaArticulos = new ArrayList<Articulo>();
-            listaArticulos.add(articulo);
+            List<Articulo>listaArticulos = articuloService.getArticulo(id);
             RespuestaArticulo respuestaArticulo = new RespuestaArticulo(0, listaArticulos, "");
             return respuestaArticulo;
         } catch (Exception exception) {

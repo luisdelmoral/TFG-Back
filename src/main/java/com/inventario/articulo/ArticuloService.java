@@ -29,11 +29,16 @@ public class ArticuloService {
         return jdbcTemplate.update(sentenciaInsertarArticulo);
     }
 
-    public Articulo getArticulo(Long id) {
+    public List<Articulo> getArticulo(Long id) {
         String sentenciaGetArticulo = String.format(Constantes.GET_ARTICULO, id);
-        Articulo articulo = jdbcTemplate.queryForObject(sentenciaGetArticulo,
-                new DataClassRowMapper<>(Articulo.class));
-        return articulo;
+        List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(sentenciaGetArticulo);
+        List<Articulo> listaArticulo = new ArrayList<>();
+        queryResult.forEach(fila -> {
+            Articulo articulo = new Articulo((Long) fila.get("id"),(Long) fila.get ("marcas_id"),
+                (String) fila.get ("nombre"), (String) fila.get("descripcion"), (BigDecimal) fila.get("precio"), (Integer) fila.get ("cantidad"), (Boolean) fila.get("descatalogado"));
+                listaArticulo.add(articulo);
+        });
+        return listaArticulo;
     }
 
     public List<Articulo> getAll() {
