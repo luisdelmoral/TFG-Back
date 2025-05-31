@@ -61,8 +61,8 @@ public class ArticuloService {
     }
 
     public int actulizarArticulo(Articulo articulo) {
-        String sentenciaActuliarArticulo = String.format(Constantes.ACTUALIZAR_ARTICULO, articulo.nombre(), articulo.precio(), articulo.cantidad(), articulo.descatalogado(), articulo.id());
-        return jdbcTemplate.update(sentenciaActuliarArticulo);
+        String sentenciaActualizarArticulo = String.format(Constantes.ACTUALIZAR_ARTICULO, articulo.nombre(), articulo.descripcion(), articulo.precio(), articulo.cantidad(), articulo.descatalogado(), articulo.id());
+        return jdbcTemplate.update(sentenciaActualizarArticulo);
     }
 
 }

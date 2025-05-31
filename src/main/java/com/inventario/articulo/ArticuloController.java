@@ -66,8 +66,8 @@ public class ArticuloController {
     }
 
     @CrossOrigin
-    @DeleteMapping("/actulizar")
-    public RespuestaArticulo actualizarArticulo(@RequestParam Articulo articulo) {
+    @PostMapping("/actualizar")
+    public RespuestaArticulo actualizarArticulo(@RequestBody Articulo articulo) {
         try {
             int filasAfectadas = articuloService.actulizarArticulo(articulo);
             return new RespuestaArticulo(filasAfectadas, new ArrayList<Articulo>(), "");

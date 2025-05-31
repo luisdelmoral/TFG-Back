@@ -34,7 +34,7 @@ public class Constantes {
 
         public static final String ELIMINAR_ARTICULO = "delete from articulos where id=%d";
 
-        public static final String ACTUALIZAR_ARTICULO = "update articulos set nombre='%s' descripcion='%s' precio=%s cantidad=%d descatalogado=%b where id=%d";
+        public static final String ACTUALIZAR_ARTICULO = "update articulos set nombre='%s', descripcion='%s', precio=%s, cantidad=%d, descatalogado=%b where id=%d";
          
 
 
