@@ -34,9 +34,10 @@ public class ArticuloService {
         List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(sentenciaGetArticulo);
         List<Articulo> listaArticulo = new ArrayList<>();
         queryResult.forEach(fila -> {
-            Articulo articulo = new Articulo((Long) fila.get("id"),(Long) fila.get ("marcas_id"),
-                (String) fila.get ("nombre"), (String) fila.get("descripcion"), (BigDecimal) fila.get("precio"), (Integer) fila.get ("cantidad"), (Boolean) fila.get("descatalogado"));
-                listaArticulo.add(articulo);
+            Articulo articulo = new Articulo((Long) fila.get("id"), (Long) fila.get("marcas_id"),
+                    (String) fila.get("nombre"), (String) fila.get("descripcion"), (BigDecimal) fila.get("precio"),
+                    (Integer) fila.get("cantidad"), (Boolean) fila.get("descatalogado"));
+            listaArticulo.add(articulo);
         });
         return listaArticulo;
     }
@@ -45,9 +46,10 @@ public class ArticuloService {
         List<Map<String, Object>> queryResult = jdbcTemplate.queryForList(Constantes.GET_ALL_ARTICULO);
         List<Articulo> listaArticulo = new ArrayList<>();
         queryResult.forEach(fila -> {
-            Articulo articulo = new Articulo((Long) fila.get("id"),(Long) fila.get ("marcas_id"),
-                (String) fila.get ("nombre"), (String) fila.get("descripcion"), (BigDecimal) fila.get("precio"), (Integer) fila.get ("cantidad"), (Boolean) fila.get("descatalogado"));
-                listaArticulo.add(articulo);
+            Articulo articulo = new Articulo((Long) fila.get("id"), (Long) fila.get("marcas_id"),
+                    (String) fila.get("nombre"), (String) fila.get("descripcion"), (BigDecimal) fila.get("precio"),
+                    (Integer) fila.get("cantidad"), (Boolean) fila.get("descatalogado"));
+            listaArticulo.add(articulo);
         });
         return listaArticulo;
 
@@ -55,7 +57,12 @@ public class ArticuloService {
 
     public int eliminarArticulo(Long id) {
         String sentenciaElminarArticulo = String.format(Constantes.ELIMINAR_ARTICULO, id);
-        return  jdbcTemplate.update(sentenciaElminarArticulo);
+        return jdbcTemplate.update(sentenciaElminarArticulo);
+    }
+
+    public int actulizarArticulo(Articulo articulo) {
+        String sentenciaActuliarArticulo = String.format(Constantes.ACTUALIZAR_ARTICULO, articulo.nombre(), articulo.precio(), articulo.cantidad(), articulo.descatalogado(), articulo.id());
+        return jdbcTemplate.update(sentenciaActuliarArticulo);
     }
 
 }

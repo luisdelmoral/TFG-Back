@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @RequestMapping("/api/articulo")
 public class ArticuloController {
@@ -36,7 +35,7 @@ public class ArticuloController {
     @GetMapping(value = "/get")
     public RespuestaArticulo getArticulo(@RequestParam Long id) {
         try {
-            List<Articulo>listaArticulos = articuloService.getArticulo(id);
+            List<Articulo> listaArticulos = articuloService.getArticulo(id);
             RespuestaArticulo respuestaArticulo = new RespuestaArticulo(0, listaArticulos, "");
             return respuestaArticulo;
         } catch (Exception exception) {
@@ -45,7 +44,7 @@ public class ArticuloController {
 
     }
 
-     @GetMapping("/getAll")
+    @GetMapping("/getAll")
     public RespuestaArticulo getAll() {
         try {
             List<Articulo> listaArticulos = articuloService.getAll();
@@ -57,16 +56,23 @@ public class ArticuloController {
 
     @CrossOrigin
     @DeleteMapping("/eliminar")
-    public RespuestaArticulo delete (@RequestParam Long id) {
+    public RespuestaArticulo delete(@RequestParam Long id) {
         try {
             int filasAfectadas = articuloService.eliminarArticulo(id);
             return new RespuestaArticulo(filasAfectadas, new ArrayList<Articulo>(), "");
+        } catch (Exception exception) {
+            return new RespuestaArticulo(0, new ArrayList<Articulo>(), exception.getMessage());
         }
-            catch (Exception exception) {
-                return new RespuestaArticulo(0, new ArrayList<Articulo>(), exception.getMessage());
-            }
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/actulizar")
+    public RespuestaArticulo actualizarArticulo(@RequestParam Articulo articulo) {
+        try {
+            int filasAfectadas = articuloService.actulizarArticulo(articulo);
+            return new RespuestaArticulo(filasAfectadas, new ArrayList<Articulo>(), "");
+        } catch (Exception exception) {
+            return new RespuestaArticulo(0, new ArrayList<Articulo>(), exception.getMessage());
         }
+    }
 }
-
-
-
