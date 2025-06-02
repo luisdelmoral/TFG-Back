@@ -14,7 +14,7 @@ public class Constantes {
 
         public static final String GET_ALL_CONTACTO = "select * from contactos"; 
 
-        public static final String INSERTAR_MARCA = "insert into marcas (nombre, categorias_id, contactos_id, descripcion) values ('%s', %d, %d, '%s')";
+        public static final String INSERTAR_MARCA = "insert into marcas (nombre, categorias_id, descripcion) values ('%s', %d, '%s')";
 
         public static final String GET_MARCA = "select * from marcas where id=%d";
 

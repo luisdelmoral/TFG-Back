@@ -19,7 +19,7 @@ public class MarcaService {
 
     public int insertarMarca(Marca marca) {
         String sentenciaInsertarMarca = String.format(Constantes.INSERTAR_MARCA, marca.nombre(),
-                marca.categoriaId(), marca.contactoId(), marca.descripcion());
+                marca.categoriaId(), marca.descripcion());
         return jdbcTemplate.update(sentenciaInsertarMarca);
     }
 
@@ -35,7 +35,7 @@ public class MarcaService {
         List<Marca> listaMarca = new ArrayList<>();
         queryResult.forEach(fila -> {
             Marca marca = new Marca((Long) fila.get("id"),(Long) fila.get ("categorias_id"), 
-                (Long) fila.get ("contactos_id"), (String) fila.get("nombre"), (String) fila.get ("descripcion"));
+                (String) fila.get("nombre"), (String) fila.get ("descripcion"));
                 listaMarca.add(marca);
         });
         return listaMarca;
